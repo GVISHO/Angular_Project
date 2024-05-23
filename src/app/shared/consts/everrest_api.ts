@@ -1,0 +1,1 @@
+export const EVERREST_API_URL = 'https://api.everrest.educata.dev';

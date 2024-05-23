@@ -1,0 +1,33 @@
+.card {
+    display: inline-block !important;
+    /* padding: 10vh 10vw; */
+    padding: 40px;
+    width: 40vw;
+    max-height: 70vh;
+
+}
+
+img {
+    height: 35vh;
+    width: 30vw;
+    object-fit: contain;
+    /* padding: 10vh 10vw; */
+    transition: 0.4s ease;
+}
+
+img:hover {
+    height: 40vh;
+    width: 35vw;
+    object-fit: contain;
+    transition: 0.4s ease;
+}
+
+.carousel-price {
+    color: var(--purple_color);
+    font-family: var(--nunito-font);
+    font-size: 2rem;
+}
+
+/* .rating {
+    width: 100px;
+} */

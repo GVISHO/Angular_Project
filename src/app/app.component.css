@@ -1,0 +1,36 @@
+/* main {
+    background-color: var(--background_color);
+} */
+
+h2:hover {
+    color: var(--hover_color);
+}
+
+.brand_logo {
+    border: 2px solid black;
+    text-decoration: none;
+    border-radius: 30%;
+    color: white;
+    background-color: black;
+    font-size: 25px;
+    font-family: var(--primary_font);
+    padding: 8px;
+    /* padding: 5px; */
+    margin-right: 7px;
+    margin-left: 15px;
+}
+
+.logo_text {
+    font-family: var(--primary_font);
+    font-size: 20px;
+}
+
+.form-inline {
+    flex-grow: 3;
+    max-width: 500px;
+    margin-right: 1rem;
+}
+
+.navdrop {
+    margin-right: 50px;
+}

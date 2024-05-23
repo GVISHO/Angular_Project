@@ -1,0 +1,31 @@
+.star {
+    color: var(--purple_color);
+    font-size: 40px !important;
+}
+
+.star-rating span.full,
+.star-rating span.half,
+.star-rating span.empty {
+    font-size: 2rem;
+
+}
+
+.full {
+    color: var(--purple_color);
+}
+
+.half {
+    position: relative;
+}
+
+.half::before {
+    content: '\2605';
+    position: absolute;
+    width: 50%;
+    overflow: hidden;
+    color: var(--purple_color);
+}
+
+.empty {
+    color: darkgray;
+}

@@ -1,0 +1,20 @@
+:root {
+    --primary_font: 'Roboto', sans-serif;
+    --secondary_font: 'Nunito', sans-serif;
+    --background_color: rgb(207, 209, 220);
+    --purple_color: rgb(117, 31, 255);
+    --hover_color: rgb(148, 148, 148);
+
+}
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body {
+    margin-top: 65px !important;
+    padding: 0;
+    height: 100%;
+}

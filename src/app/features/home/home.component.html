@@ -1,0 +1,135 @@
+<div class="greyback">
+  <section class="firstsect" appBackgroundImageRotator>
+    <!-- <div class="background_image" appBackgroundImageRotator></div> -->
+    <div class="firstsect_textbox">
+      <h5>Best Prices</h5>
+      <h2>
+        Incredible Prices <br />
+        on All Your <br />
+        Favorite Items
+      </h2>
+      <p>Get more for less on selected brands</p>
+      <a href="" class="">Shop Now</a>
+    </div>
+  </section>
+  <section class="grid_box">
+    <div class="first_grid_box">
+      <h6>Holiday Deals</h6>
+      <h2>
+        Up to <br />
+        30% off
+      </h2>
+      <h5>Selected Smartphone Brands</h5>
+      <a href="">Shop</a>
+    </div>
+    <div class="second_grid_box">
+      <h6>Just In</h6>
+      <h2>
+        Take Your <br />
+        Sound <br />
+        Anywhere
+      </h2>
+      <h5>Top Headphone Brands</h5>
+      <a href="">Shop</a>
+    </div>
+  </section>
+  <section class="thirdsect">
+    <div class="grid_box2">
+      <div>
+        <svg
+          class="main_svgs"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 512"
+        >
+          <path
+            fill="#000000"
+            d="M48 0C21.5 0 0 21.5 0 48V368c0 26.5 21.5 48 48 48H64c0 53 43 96 96 96s96-43 96-96H384c0 53 43 96 96 96s96-43 96-96h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V288 256 237.3c0-17-6.7-33.3-18.7-45.3L512 114.7c-12-12-28.3-18.7-45.3-18.7H416V48c0-26.5-21.5-48-48-48H48zM416 160h50.7L544 237.3V256H416V160zM112 416a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm368-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"
+          />
+        </svg>
+        <span>Delivery Everywhere!</span>
+      </div>
+      <div>
+        <svg
+          class="main_svgs"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 512"
+        >
+          <path
+            fill="#000000"
+            d="M256 48c0-26.5 21.5-48 48-48H592c26.5 0 48 21.5 48 48V464c0 26.5-21.5 48-48 48H381.3c1.8-5 2.7-10.4 2.7-16V253.3c18.6-6.6 32-24.4 32-45.3V176c0-26.5-21.5-48-48-48H256V48zM571.3 347.3c6.2-6.2 6.2-16.4 0-22.6l-64-64c-6.2-6.2-16.4-6.2-22.6 0l-64 64c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L480 310.6V432c0 8.8 7.2 16 16 16s16-7.2 16-16V310.6l36.7 36.7c6.2 6.2 16.4 6.2 22.6 0zM0 176c0-8.8 7.2-16 16-16H368c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H16c-8.8 0-16-7.2-16-16V176zm352 80V480c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V256H352zM144 320c-8.8 0-16 7.2-16 16s7.2 16 16 16h96c8.8 0 16-7.2 16-16s-7.2-16-16-16H144z"
+          />
+        </svg>
+        <span>Free shipping on orders over 50$</span>
+      </div>
+      <div>
+        <svg
+          class="main_svgs"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 384 512"
+        >
+          <path
+            fill="#000000"
+            d="M374.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-320 320c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l320-320zM128 128A64 64 0 1 0 0 128a64 64 0 1 0 128 0zM384 384a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"
+          />
+        </svg>
+        <span>Low prices guaranteed</span>
+      </div>
+      <div>
+        <svg
+          class="main_svgs"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+        >
+          <path
+            fill="#000000"
+            d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"
+          />
+        </svg>
+        <span>Available to you 24/7</span>
+      </div>
+    </div>
+  </section>
+  <section class="fourthsect">
+    <div class="box">
+      <h2>Best Sellers</h2>
+      @if (productsForCarousel$ | async; as response) {
+        <div id="carouselExample" class="carousel carousel-dark slide">
+          <div class="carousel-inner">
+            @for (
+              product of response.products;
+              track product._id;
+              let i = $index
+            ) {
+              <app-products-carousel
+                [Product]="product"
+                class="carousel-item"
+                [class.active]="i === 0"
+              ></app-products-carousel>
+            }
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      }
+      <div class="flexbox">
+        <a href="" class="">View All</a>
+      </div>
+    </div>
+  </section>
+</div>

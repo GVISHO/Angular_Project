@@ -1,0 +1,27 @@
+@if (Product) {
+  <div>
+    <a href="">
+      <div class="card">
+        <img
+          [src]="Product.thumbnail"
+          class="card-img-top"
+          alt="{{ Product.title }} image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ Product.title }}</h5>
+          <!-- <p class="card-text">
+            {{ Product.price.current }}$<br />
+            Rating:{{ Product.rating }}
+          </p> -->
+          <h5 class="card-text carousel-price">{{ Product.price.current }}$</h5>
+          <!-- <h5 class="card-text carousel-rating">Rating:{{ Product.rating }}</h5> -->
+          <div class="rating">
+            <app-product-rating-stars
+              [rating]="Product.rating"
+            ></app-product-rating-stars>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+}
