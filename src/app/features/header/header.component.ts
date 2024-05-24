@@ -1,12 +1,13 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject,OnInit } from '@angular/core';
 import { BrandsService } from '../../shared/services';
-import { BrandsDropdownComponent } from '../../shared/ui/brands-dropdown/brands-dropdown.component';
+
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [AsyncPipe,BrandsDropdownComponent],
+  imports: [AsyncPipe,UpperCasePipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

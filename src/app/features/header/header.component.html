@@ -43,7 +43,10 @@
           @if (brands$ | async; as response) {
             <ul class="dropdown-menu">
               @for (brand of response; track brand) {
-                <app-brands-dropdown [brand]="brand"></app-brands-dropdown>
+                <!-- <app-brands-dropdown [brand]="brand"></app-brands-dropdown> -->
+                <li>
+                  <a href="" class="dropdown-item">{{ brand | uppercase }}</a>
+                </li>
               }
             </ul>
           }
