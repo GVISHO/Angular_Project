@@ -9,6 +9,6 @@ import { brand } from '../../interfaces';
   styleUrl: './brands-dropdown.component.css'
 })
 export class BrandsDropdownComponent {
-  @Input() brand: brand | null = null;
+  @Input() brand: string | null = null;
 
 }

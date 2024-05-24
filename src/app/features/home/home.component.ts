@@ -11,7 +11,7 @@ import { ProductsCarouselComponent } from '../../shared/ui/products-carousel/pro
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export default class HomeComponent {
  private readonly productsService = inject(ProductsService)
  readonly productsForCarousel$ = this.productsService.getProductsForCarousel()
 }

@@ -41,11 +41,11 @@
           </a>
 
           @if (brands$ | async; as response) {
-            <ul class="dropdown-menu"></ul>
-            @for (brand of response.brands; track brand.name) {
-              <p>leqer</p>
-              <app-brands-dropdown [brand]="brand"></app-brands-dropdown>
-            }
+            <ul class="dropdown-menu">
+              @for (brand of response; track brand) {
+                <app-brands-dropdown [brand]="brand"></app-brands-dropdown>
+              }
+            </ul>
           }
           <!-- <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>

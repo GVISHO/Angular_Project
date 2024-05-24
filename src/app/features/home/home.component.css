@@ -192,7 +192,7 @@
     height: 100%;
 
 } */
-.carousel-inner {
+/* .carousel-inner {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -201,7 +201,7 @@
     position: relative !important;
     z-index: 0;
 
-}
+} */
 
 /* .carousel-item {
     display: flex;
@@ -220,7 +220,7 @@
 } */
 .carousel-item {
     /* margin-top: 10px; */
-    max-height: 100% !important;
+    /* max-height: 80% !important; */
     margin-top: 30px;
     /* margin-bottom: 80px !important; */
 }

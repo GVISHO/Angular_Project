@@ -1,3 +1,5 @@
-<li>
-  <a href="" class="dropdown-item">{{ brand?.name }}</a>
-</li>
+@if (brand) {
+  <li>
+    <a href="" class="dropdown-item">{{ brand }}</a>
+  </li>
+}
