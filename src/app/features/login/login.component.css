@@ -1,0 +1,38 @@
+.grayback {
+    height: 70vh;
+    background-color: var(--background_color);
+    font-family: var(--primary_font);
+    padding-top: 7rem;
+}
+
+.card {
+    width: 60%;
+    margin: auto;
+
+}
+
+.card h3 {
+    width: fit-content;
+    margin: auto;
+}
+
+form {
+    width: 70%;
+    margin: auto;
+}
+
+form button {
+    border-radius: 25px;
+    width: 90px;
+    background-color: var(--purple_color);
+    border: 1px solid var(--purple_color);
+    color: white;
+    transition: 0.4s ease;
+    height: 2rem;
+}
+
+form button:hover {
+    background-color: white;
+    color: black;
+    transition: 0.4s ease;
+}

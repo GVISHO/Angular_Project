@@ -48,6 +48,13 @@
   </div>
   <div>
     <h4>Shop</h4>
+    <div class="brand_links">
+      @if (brands$ | async; as response) {
+        @for (brand of response; track brand) {
+          <a href="" class="">{{ brand | uppercase }}</a>
+        }
+      }
+    </div>
   </div>
   <div>
     <h4>Customer Support</h4>

@@ -310,33 +310,37 @@
         <h5>Sign up to receive updates on new arrivals and special offers</h5>
       </div>
       <div class="input_box">
-        <h6>Email*</h6>
+        <!-- <h6>Email*</h6>
         <form action="https://api.everrest.educata.dev/echo/html" method="post">
-          <label for="email">
+          <label for="email" class="form">
             <input
               type="email"
               name="email"
               id="main_email"
+              class="form-control"
               placeholder="Your Email Here"
             />
           </label>
           <button type="submit">Subscribe</button>
+        </form> -->
+        <form action="https://api.everrest.educata.dev/echo/html" method="post">
+          <!-- <label for="email" class="form-label">Email*</label> -->
+          <div class="d-flex m-auto">
+            <div class="d-flex m-auto">
+              <input
+                type="email"
+                name="email"
+                id="email_main"
+                class="form-control"
+                placeholder="Enter your Email"
+              />
+              <button type="submit">Subscribe</button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
   </section>
-  <section class="ninethsection">
-    <div class="side_text3">
-      <h2>
-        Need Help? Check <br />
-        Out Our Help Center
-      </h2>
-      <p>
-        I'm a paragraph. Click here to add your own text <br />
-        and edit me. Let your users get to know you.
-      </p>
-      <a href="">Go To Help Centre</a>
-    </div>
-    <div class="main_photo3"></div>
-  </section>
+
+  <app-help-centre-article></app-help-centre-article>
 </div>

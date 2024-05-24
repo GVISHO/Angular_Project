@@ -63,7 +63,7 @@
     background-size: cover;
     background-position: center;
     height: 460px;
-    width: 45vw;
+    width: 100%;
     margin: auto;
 }
 
@@ -121,7 +121,7 @@
     height: 460px;
     background-size: cover;
     background-position: center;
-    width: 45vw;
+    width: 100%;
     margin: auto;
 }
 
@@ -291,18 +291,18 @@
 .circle img {
     /* width: 150px;
     height: 150px; */
-    width: 12rem;
-    height: 12rem;
+    width: 10rem;
+    height: 10rem;
     border: 1px solid var(--background_color);
     border-radius: 50%;
     transition: 0.4s ease;
 }
 
 .circle img:hover {
-    /* width: 170px;
-    height: 170px; */
-    width: 11rem;
-    height: 11rem;
+    /* 960 pixelze fuchdeba */
+
+    width: 9rem;
+    height: 9rem;
     transition: 0.4s ease;
 }
 
@@ -327,7 +327,7 @@
 .side_text2 {
     background-color: white;
     padding-top: 5vh;
-    padding-left: 5vw;
+    padding-left: 4vw;
 }
 
 .side_text h2 {
@@ -407,13 +407,13 @@
     color: white;
 }
 
-#main_email {
-    width: 35rem;
+#email_main {
+    width: 25rem !important;
     height: 3rem;
-    padding-left: 20px;
+    /* padding-left: 20px; */
     border-radius: 25px;
     border: 1px solid var(--purple_color);
-    margin: auto !important;
+    /* margin: auto !important; */
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 
@@ -433,6 +433,7 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     transition: 0.4s ease;
+    /* margin-top: 30px !important; */
 }
 
 .input_box button:hover {

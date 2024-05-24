@@ -3,11 +3,12 @@ import { BackgroundImageRotatorDirective } from '../../shared/directives/backgro
 import { ProductsService } from '../../shared/services';
 import { AsyncPipe } from '@angular/common';
 import { ProductsCarouselComponent } from '../../shared/ui/products-carousel/products-carousel.component';
+import { HelpCentreArticleComponent } from '../../shared/ui/help-centre-article/help-centre-article.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [BackgroundImageRotatorDirective,AsyncPipe,ProductsCarouselComponent],
+  imports: [BackgroundImageRotatorDirective,AsyncPipe,ProductsCarouselComponent,HelpCentreArticleComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

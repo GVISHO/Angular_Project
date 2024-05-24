@@ -14,7 +14,8 @@ p {
 }
 
 .support_links,
-.policy_links {
+.policy_links,
+.brand_links {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,7 +28,8 @@ h4 {
 }
 
 .support_links a,
-.policy_links a {
+.policy_links a,
+.brand_links a {
     text-decoration: none;
     color: black;
     transition: 0.4s;
