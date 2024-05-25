@@ -2,8 +2,35 @@
   <div class="card">
     <h3 class="card-title mb-2">Log In</h3>
     <form [formGroup]="signIn">
-      <label for="email" class="form-label">Email*</label>
+      <label for="email" class="form-label">Email</label>
       <input type="text" formControlName="email" class="form-control" />
+      @if (getSignInFormError("email")["required"]) {
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          You need to type in Email first!
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+      } @else if (getSignInFormError("email")["email"]) {
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          Please write valid Email!
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+      }
       <label for="password" class="form-label">Password</label>
       <input
         type="password"
@@ -12,9 +39,28 @@
         formControlName="password"
         class="form-control"
       />
-      <button type="submit" class="mt-2">Log in</button>
+      @if (getSignInFormError("password")["required"]) {
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          Password is required!
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+      }
+      <button
+        class="mt-2 loginbtn"
+        (click)="onSignInSubmit()"
+        [disabled]="!signIn.valid"
+      >
+        Log in
+      </button>
     </form>
-    <span>Dont have an account?</span>
-    <span><a href="">Sign Up</a></span>
+    <span>Dont have an account?<a routerLink="/signup">Sign Up</a></span>
   </div>
 </div>

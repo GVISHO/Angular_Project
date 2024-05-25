@@ -7,10 +7,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { SignInUser } from '../../shared/interfaces/user';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule,FormsModule],
+  imports: [ReactiveFormsModule,FormsModule,RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -22,5 +23,8 @@ readonly signIn = this.fb.group({
 })
 onSignInSubmit() {
   console.log(this.signIn.value);
+}
+getSignInFormError(control: string) {
+  return (this.signIn.get(control) || {}).errors || {};
 }
 }

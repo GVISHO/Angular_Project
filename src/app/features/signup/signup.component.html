@@ -1,0 +1,35 @@
+<!-- todo add errorss -->
+<div class="grayback">
+  <div class="card">
+    <h3 class="card-title mb-2">Sign Up</h3>
+    <form [formGroup]="signUp">
+      <label for="firstname" class="form-label">First Name</label>
+      <input type="text" class="form-control" formControlName="firstName" />
+      <label for="lasttname" class="form-label">Last Name</label>
+      <input type="text" class="form-control" formControlName="lastName" />
+      <label for="age" class="form-label">Age</label>
+      <input type="number" class="form-control" formControlName="age" />
+      <label for="email" class="form-label">Email</label>
+      <input type="text" class="form-control" formControlName="email" />
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" formControlName="password" />
+      <label for="address" class="form-label">Address</label>
+      <input type="text" class="form-control" formControlName="address" />
+      <label for="phone" class="form-label">Phone</label>
+      <input type="text" class="form-control" formControlName="phone" />
+      <label for="zipcode" class="form-label">Zip code</label>
+      <input type="text" class="form-control" formControlName="zipcode" />
+      <label for="gender" class="form-label">Gender</label>
+      <select
+        class="form-select"
+        aria-label="Disabled select example"
+        formControlName="gender"
+      >
+        <option selected>Male</option>
+        <option value="1">Female</option>
+        <option value="2">Other</option>
+      </select>
+      <button type="submit" [disabled]="!signUp.valid">Sign Up</button>
+    </form>
+  </div>
+</div>

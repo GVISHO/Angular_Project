@@ -5,6 +5,7 @@ import { FooterComponent } from './features/footer/footer.component';
 // import { HomeComponent } from './features/home/home.component';
 import { BackgroundImageRotatorDirective } from './shared/directives/background-image-rotator.directive';
 import { HttpClientModule } from '@angular/common/http';
+
 import { BrowserModule } from '@angular/platform-browser';
 
 

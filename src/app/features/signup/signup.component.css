@@ -1,5 +1,6 @@
+/* responsive sachiroa 600px dan */
 .grayback {
-    height: 700px;
+    height: 900px;
     background-color: var(--background_color);
     font-family: var(--primary_font);
     padding-top: 3rem;
@@ -8,7 +9,8 @@
 .card {
     width: 60%;
     margin: auto;
-    height: 500px
+
+
 }
 
 .card h3 {
@@ -22,7 +24,7 @@ form {
     height: fit-content;
 }
 
-form .loginbtn {
+form button {
     border-radius: 25px;
     width: 90px;
     background-color: var(--purple_color);
@@ -30,31 +32,23 @@ form .loginbtn {
     color: white;
     transition: 0.4s ease;
     height: 2rem;
+    margin-left: 85% !important;
+    margin-top: 20px;
 }
 
-form .loginbtn:hover {
-    background-color: white;
-    color: black;
-    transition: 0.4s ease;
-}
-
-span {
-    width: 70%;
-    margin: 0px auto 0px;
-}
-
-span a {
-    color: var(--purple_color);
-    text-decoration: none;
-}
-
-form .loginbtn:disabled {
+form button:disabled {
     background-color: rgb(32, 0, 61);
     cursor: not-allowed;
 }
 
-form .loginbtn:disabled:hover {
+form button:disabled:hover {
     background-color: rgb(32, 0, 61);
     cursor: not-allowed;
     color: white;
+}
+
+form button:hover {
+    background-color: white;
+    color: black;
+    transition: 0.4s ease;
 }

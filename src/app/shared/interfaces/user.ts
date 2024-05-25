@@ -1,7 +1,7 @@
 export interface BaseUser {
   firstName: string;
   lastName: string;
-  age: number;
+  age: string;
   email: string;
   password: string;
   address: string;
@@ -21,4 +21,8 @@ export interface User extends SignUpUser {
   export interface JwtTokens {
     access_token: string;
     refresh_token: string;
+}
+export interface JwtTokenDetails {
+  iat: number;
+  exp: number;
 }

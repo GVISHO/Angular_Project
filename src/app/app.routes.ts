@@ -11,6 +11,16 @@ export const routes: Routes = [ {
     loadComponent:() => import('./features/login/login.component')
   },
   {
+    path:'signup',
+    title:'Sign Up',
+    loadComponent:() => import('./features/signup/signup.component')
+  },
+  {
+    path:"policy",
+    title:"Policy",
+    loadComponent:() => import('./features/policy/policy.component')
+  },
+  {
     path: '404',
     title: 'Not found',
     
