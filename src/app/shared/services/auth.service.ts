@@ -1,13 +1,18 @@
 import { Injectable,Inject, inject } from '@angular/core';
 import { JwtTokens,User,SignInUser,SignUpUser } from '../interfaces/user';
-import { ErrorResponse } from '../interfaces';
+import { ErrorResponse,RecoveryResponse } from '../interfaces';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject,tap,catchError,EMPTY } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { EVERREST_API_URL } from '../consts';
 import { StorageKeys } from '../enums';
 import { AlertService } from './alert.service';
-import { Router } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivateFn,
+  Router,
+  RouterStateSnapshot,
+} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,17 +22,17 @@ export class AuthService {
   private readonly alertService = inject(AlertService);
   private readonly router = inject(Router);
   // private readonly jwtService = inject(JwtHelperService)
-  // private readonly jwtService = inject(JwtHelperService);
+  private readonly jwtService = inject(JwtHelperService);
   readonly #user$ = new BehaviorSubject<User | null>(null);
   readonly user$ = this.#user$.asObservable();
   readonly baseUrl = `${EVERREST_API_URL}/auth`;
-  // constructor() {
-  //   this.init();
+  constructor() {
+    this.init();
 
-  //   setInterval(() => {
-  //     this.checkUser();
-  //   }, 300000);
-  // }
+    setInterval(() => {
+      this.checkUser();
+    }, 300000);
+  }
 
   get user(){
     return this.#user$.value
@@ -62,17 +67,17 @@ export class AuthService {
   signIn(user: SignInUser) {
     return this.http.post<JwtTokens>(`${this.baseUrl}/sign_in`, { ...user });
   }
-  // init() {
-  //   if (this.accessToken && this.refreshToken) {
-  //     this.user = this.jwtService.decodeToken(this.accessToken);
-  //     this.checkUser();
-  //   } else if (!this.accessToken && this.refreshToken) {
-  //     this.handleRefresh();
-  //   } else {
-  //     this.removeTokens();
-  //     return;
-  //   }
-  // }
+  init() {
+    if (this.accessToken && this.refreshToken) {
+      this.user = this.jwtService.decodeToken(this.accessToken);
+      this.checkUser();
+    } else if (!this.accessToken && this.refreshToken) {
+      this.handleRefresh();
+    } else {
+      this.removeTokens();
+      return;
+    }
+  }
   handleRefresh() {
     if (!this.refreshToken) {
       this.logOut(false);
@@ -117,18 +122,18 @@ export class AuthService {
       )
       .subscribe();
   }
-  // handleSignIn(tokens: JwtTokens) {
-  //   this.user = this.jwtService.decodeToken(tokens.access_token)
-  //   this.accessToken = tokens.access_token;
-  //   this.refreshToken = tokens.refresh_token;
+  handleSignIn(tokens: JwtTokens) {
+    this.user = this.jwtService.decodeToken(tokens.access_token)
+    this.accessToken = tokens.access_token;
+    this.refreshToken = tokens.refresh_token;
 
-  //   if (!this.user?.verified) {
-  //     this.router.navigateByUrl('/verify');
-  //     return;
-  //   }
+    if (!this.user?.verified) {
+      this.router.navigateByUrl('/verify');
+      return;
+    }
 
-  //   this.router.navigateByUrl('/');
-  // }
+    this.router.navigateByUrl('/');
+  }
   logOut(showMessage = true) {
     this.user = null;
     this.removeTokens();
@@ -141,20 +146,109 @@ export class AuthService {
     localStorage.removeItem(StorageKeys.AccessToken);
     localStorage.removeItem(StorageKeys.RefreshToken);
   }
-  // recovery(email: string) {
-  //   this.http
-  //     .post<RecoveryResponse>(`${this.baseUrl}/recovery`, { email })
-  //     .pipe(
-  //       tap((response) => {
-  //         this.alertSerivce.alert('Recovery', 'info', response.message);
-  //         this.router.navigateByUrl('/auth');
-  //       }),
-  //       catchError((err) => {
-  //         this.alertSerivce.error(err);
-  //         return EMPTY;
-  //       }),
-  //     )
-  //     .subscribe();
-  // }
+  recovery(email: string) {
+    this.http
+      .post<RecoveryResponse>(`${this.baseUrl}/recovery`, { email })
+      .pipe(
+        tap((response) => {
+          this.alertService.alert('Recovery', 'info', response.message);
+          this.router.navigateByUrl('/login');
+        }),
+        catchError((err) => {
+          this.alertService.error(err);
+          return EMPTY;
+        }),
+      )
+      .subscribe();
+  }
+  canActivate() {
+    if (!this.accessToken || !this.refreshToken) {
+      this.router.navigateByUrl('/');
+      return false;
+    }
+
+    try {
+      const user = this.jwtService.decodeToken(this.accessToken) as User;
+
+      if (user.verified) {
+        return true;
+      }
+      this.router.navigateByUrl('/verify');
+      return false;
+    } catch (err) {
+      this.router.navigateByUrl('/');
+      this.removeTokens();
+      return false;
+    }
+  }
+
+  canVerify() {
+    if (!this.accessToken || !this.refreshToken) {
+      this.router.navigateByUrl('/');
+      return false;
+    }
+
+    try {
+      const user = this.jwtService.decodeToken(this.accessToken) as User;
+
+      if (user.verified) {
+        this.router.navigateByUrl('/');
+        return false;
+      }
+
+      return true;
+    } catch (err) {
+      this.router.navigateByUrl('/');
+      this.removeTokens();
+      return false;
+    }
+  }
+
+  canAuth() {
+    if (!this.accessToken || !this.refreshToken) {
+      return true;
+    }
+
+    this.router.navigateByUrl('/');
+    return false;
+  }
+
+  canOpenNotAuthPage() {
+    if (this.accessToken || this.refreshToken) {
+      this.router.navigateByUrl('/');
+      return false;
+    }
+
+    return true;
+  }
 }
+
+export const canActivate: CanActivateFn = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot,
+) => {
+  return inject(AuthService).canActivate();
+};
+
+export const canVerify: CanActivateFn = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot,
+) => {
+  return inject(AuthService).canVerify();
+};
+
+export const canAuth: CanActivateFn = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot,
+) => {
+  return inject(AuthService).canAuth();
+};
+
+export const canOpenNotAuthPage: CanActivateFn = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot,
+) => {
+  return inject(AuthService).canOpenNotAuthPage();
+};
+
 

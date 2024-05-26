@@ -8,4 +8,8 @@ export interface ErrorResponse {
     swagger: string;
     timestamp: string;
   }
+  export interface RecoveryResponse {
+    status: number;
+    message: string;
+  }
   
