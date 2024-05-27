@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink,Router } from '@angular/router';
 import { SignUpUser } from '../../shared/interfaces/user';
 import { AuthService,AlertService } from '../../shared/services';
 import { EMPTY,catchError,tap } from 'rxjs';
@@ -21,6 +21,7 @@ export default class SignupComponent {
   private readonly fb = inject(FormBuilder)
   private readonly authService = inject(AuthService);
   private readonly alertService = inject(AlertService);
+  private readonly router = inject(Router);
   readonly signUp= this.fb.group({
     firstName: new FormControl('', [
       Validators.required,
@@ -75,5 +76,6 @@ export default class SignupComponent {
         }),
       )
       .subscribe();
+      this.router.navigateByUrl('/login')
   }
 }

@@ -37,7 +37,8 @@ h4 {
 }
 
 .support_links a:hover,
-.policy_links a:hover {
+.policy_links a:hover,
+.brand_links a:hover {
     transition: 0.4s;
     color: var(--purple_color);
 }

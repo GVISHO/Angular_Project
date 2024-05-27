@@ -18,4 +18,10 @@ export const ACCOUNT_NAV:Navigation[]=[
         auth: true,
         hideAfterAuth: false,
     },
+    {
+        title:'Log out',
+        path:'/',
+        auth:true,
+        hideAfterAuth:false
+    }
 ]

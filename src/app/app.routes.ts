@@ -8,6 +8,10 @@ export const routes: Routes = [ {
     title: 'Home',
     loadComponent: () => import('./features/home/home.component'),
   },
+  {path:'about',
+    title:"About",
+    loadComponent: () => import('./features/about/about.component')
+  },
   {
     path:"login",
     title:"Log In",
@@ -20,27 +24,27 @@ export const routes: Routes = [ {
     canActivate: [canAuth],
     loadComponent:() => import('./features/signup/signup.component')
   },
-  {
-    path:'recovery',
-    title:'Recovery',
-    canActivate: [canOpenNotAuthPage],
-  }
-  ,
-  {
-    path:'profile',
-    title:'Profile',
-    canActivate: [canActivate],
-  },
+  // {
+  //   path:'recovery',
+  //   title:'Recovery',
+  //   canActivate: [canOpenNotAuthPage],
+  // }
+  // ,
+  // {
+  //   path:'profile',
+  //   title:'Profile',
+  //   canActivate: [canActivate],
+  // },
   {
     path:"policy",
     title:"Policy",
     loadComponent:() => import('./features/policy/policy.component')
   },
-  {
-    path:'verify',
-    title:'Verify',
-    canActivate: [canVerify],
-  },
+  // {
+  //   path:'verify',
+  //   title:'Verify',
+  //   canActivate: [canVerify],
+  // },
   {
     path: '404',
     title: 'Not found',

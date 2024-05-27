@@ -4,16 +4,19 @@
     margin: auto;
 }
 
-.termsconditions {
+.termsconditions,
+.shipping {
     text-align: center;
 }
 
-.termsconditions h1 {
+.termsconditions h1,
+.shipping h1 {
     margin-top: 100px;
     margin-bottom: 60px;
     font-size: 60px;
 }
 
-.termsconditions h3 {
+.termsconditions h3,
+.shipping h3 {
     margin-top: 35px;
 }

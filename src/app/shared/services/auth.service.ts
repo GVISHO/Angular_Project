@@ -4,7 +4,7 @@ import { ErrorResponse,RecoveryResponse } from '../interfaces';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject,tap,catchError,EMPTY } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { EVERREST_API_URL } from '../consts';
+import { EVERREST_API_URL,API_BASE_URL } from '../consts';
 import { StorageKeys } from '../enums';
 import { AlertService } from './alert.service';
 import {
@@ -25,7 +25,8 @@ export class AuthService {
   private readonly jwtService = inject(JwtHelperService);
   readonly #user$ = new BehaviorSubject<User | null>(null);
   readonly user$ = this.#user$.asObservable();
-  readonly baseUrl = `${EVERREST_API_URL}/auth`;
+  // readonly baseUrl = `${API_BASE_URL}/auth`;
+  readonly baseUrl =`${EVERREST_API_URL}/auth`
   constructor() {
     this.init();
 
@@ -38,7 +39,7 @@ export class AuthService {
     return this.#user$.value
   }
   set user(user:User|null){
-    this.#user$.value;
+    this.#user$.next(user);
   }
   get accessToken() {
     return localStorage.getItem(StorageKeys.AccessToken);

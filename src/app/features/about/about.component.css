@@ -1,0 +1,104 @@
+.line {
+    border-bottom: 1px solid var(--background_color);
+    width: 85%;
+    margin: auto;
+}
+
+.top {
+    text-align: center;
+    height: 100px;
+}
+
+.top h1 {
+    padding-top: 30px;
+}
+
+/* .gridbox_about p {
+    margin: auto;
+} */
+
+.gridbox_about {
+    width: 90%;
+    margin: 10px auto 10px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.gridbox_about img {
+    height: 700px;
+    width: 40vw;
+    background-size: cover;
+    margin: auto !important;
+}
+
+.second_gridbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.second_gridbox p {
+    width: 20rem !important;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr !important;
+    row-gap: 30px;
+    width: 80%;
+    margin: auto auto 30px auto;
+}
+
+.flexbox input {
+    width: 20rem;
+    border: 0px;
+    border-bottom: 1px solid var(--background_color);
+}
+
+.flexbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.row1,
+.row2,
+.row3,
+.row4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 50px;
+}
+
+select {
+    width: 20rem;
+}
+
+.row4 .flexbox input {
+    width: 32rem;
+}
+
+.row4 button {
+    text-decoration: none;
+    color: white;
+    border-radius: 40px;
+    /* font-size: 15x; */
+    background-color: var(--purple_color);
+    padding: 10px 40px;
+    margin-top: 15px !important;
+    transition: 0.4s ease;
+    border: 1px solid var(--purple_color);
+}
+
+.row4 button:hover {
+    background-color: white;
+    border: 1px solid var(--purple_color);
+    transition: 0.4s ease;
+    color: black;
+}
