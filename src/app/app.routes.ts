@@ -13,6 +13,11 @@ export const routes: Routes = [ {
     loadComponent: () => import('./features/about/about.component')
   },
   {
+    path:'contact',
+    title:"Contact",
+    loadComponent: () => import('./features/contact/contact.component')
+  },
+  {
     path:"login",
     title:"Log In",
     canActivate: [canAuth],
