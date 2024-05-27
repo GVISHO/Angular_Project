@@ -57,6 +57,14 @@
     border-bottom: 1px solid var(--background_color);
 }
 
+.flexbox input:active,
+.flexbox input:hover,
+.flexbox input:focus {
+    border: 0px !important;
+    border-bottom: 1px solid gray !important;
+    outline: none;
+}
+
 .flexbox {
     display: flex;
     flex-direction: column;
