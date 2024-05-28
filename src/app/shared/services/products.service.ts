@@ -1,13 +1,13 @@
 import { Injectable,inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product,Products } from '../interfaces';
-import { EVERREST_API_URL } from '../consts';
+import { EVERREST_API_URL,API_BASE_URL } from '../consts';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
   private readonly http = inject(HttpClient);
-  readonly baseURL = EVERREST_API_URL;
+  readonly baseURL = API_BASE_URL;
 
   getProducts() {
     return this.http.get<Products>(

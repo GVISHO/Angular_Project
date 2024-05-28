@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { EVERREST_API_URL } from '../consts';
+import { EVERREST_API_URL,API_BASE_URL } from '../consts';
 import { Products, brand, brands } from '../interfaces';
 import { tap } from 'rxjs';
 
@@ -9,7 +9,7 @@ import { tap } from 'rxjs';
 })
 export class BrandsService {
   private readonly http = inject(HttpClient);
-  readonly baseurl = EVERREST_API_URL;
+  readonly baseurl = API_BASE_URL;
 
   getBrands() {
     return this.http

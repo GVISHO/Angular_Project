@@ -25,8 +25,8 @@ export class AuthService {
   private readonly jwtService = inject(JwtHelperService);
   readonly #user$ = new BehaviorSubject<User | null>(null);
   readonly user$ = this.#user$.asObservable();
-  // readonly baseUrl = `${API_BASE_URL}/auth`;
-  readonly baseUrl =`${EVERREST_API_URL}/auth`
+  readonly baseUrl = `${API_BASE_URL}/auth`;
+  // readonly baseUrl =`${EVERREST_API_URL}/auth`
   constructor() {
     this.init();
 
