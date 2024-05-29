@@ -1,0 +1,28 @@
+.top {
+    text-align: center;
+}
+
+.top h1 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.faqs h2,
+.faqs h3 {
+    text-align: center;
+
+}
+
+.faqs h3 {
+    margin-top: 30px;
+}
+
+#accordionExample,
+#accordionExample2 {
+    width: 70%;
+    margin: auto;
+}
+
+#accordionExample2 {
+    margin-bottom: 40px;
+}

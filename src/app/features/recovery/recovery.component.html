@@ -1,0 +1,35 @@
+<section>
+  <form [formGroup]="recovery">
+    <label for="email" class="form-label">Email</label>
+    <input type="text" formControlName="email" class="form-control" />
+    @if (getRecoveryFormError("email")["required"]) {
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        You need to type in Email first!
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+    } @else if (getRecoveryFormError("email")["email"]) {
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Please write valid Email!
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+    }
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!recovery.valid"
+      (click)="onSubmit()"
+    >
+      Submit
+    </button>
+  </form>
+</section>

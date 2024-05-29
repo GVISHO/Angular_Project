@@ -18,6 +18,11 @@ export const routes: Routes = [ {
     loadComponent: () => import('./features/contact/contact.component')
   },
   {
+    path:'helpcentre',
+    title:"Help Centre",
+    loadComponent: () => import("./features/helpcentre/helpcentre.component")
+  },
+  {
     path:"login",
     title:"Log In",
     canActivate: [canAuth],
@@ -29,12 +34,13 @@ export const routes: Routes = [ {
     canActivate: [canAuth],
     loadComponent:() => import('./features/signup/signup.component')
   },
-  // {
-  //   path:'recovery',
-  //   title:'Recovery',
-  //   canActivate: [canOpenNotAuthPage],
-  // }
-  // ,
+  {
+    path:'recovery',
+    title:'Recovery',
+    canActivate: [canOpenNotAuthPage],
+    loadComponent:() => import('./features/recovery/recovery.component')
+  }
+  ,
   // {
   //   path:'profile',
   //   title:'Profile',
@@ -45,11 +51,12 @@ export const routes: Routes = [ {
     title:"Policy",
     loadComponent:() => import('./features/policy/policy.component')
   },
-  // {
-  //   path:'verify',
-  //   title:'Verify',
-  //   canActivate: [canVerify],
-  // },
+  {
+    path:'verify',
+    title:'Verify',
+    canActivate: [canVerify],
+    loadComponent:() => import('./features/verify/verify.component')
+  },
   {
     path: '404',
     title: 'Not found',

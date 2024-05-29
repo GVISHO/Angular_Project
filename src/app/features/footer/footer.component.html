@@ -49,6 +49,7 @@
   <div>
     <h4>Shop</h4>
     <div class="brand_links">
+      <a href="">Shop All</a>
       @if (brands$ | async; as response) {
         @for (brand of response; track brand) {
           <a href="" class="">{{ brand | uppercase }}</a>
@@ -60,7 +61,7 @@
     <h4>Customer Support</h4>
     <div class="support_links">
       <a routerLink="contact">Contact Us</a>
-      <a>Help Center</a>
+      <a routerLink="helpcentre">Help Center</a>
       <a routerLink="about">About Us</a>
       <a routerLink="about">Careers</a>
     </div>
@@ -71,7 +72,7 @@
       <a routerLink="policy">Shipping & Returns </a>
       <a routerLink="policy">Terms & Conditions</a>
       <a routerLink="policy">Payment Methods </a>
-      <a href="">FAQ</a>
+      <a routerLink="helpcentre">FAQ</a>
     </div>
   </div>
 </section>
