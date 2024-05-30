@@ -4,7 +4,7 @@ import { ErrorResponse,RecoveryResponse } from '../interfaces';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject,tap,catchError,EMPTY } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { EVERREST_API_URL,API_BASE_URL } from '../consts';
+import { API_BASE_URL,EVERREST_API_URL } from '../consts';
 import { StorageKeys } from '../enums';
 import { AlertService } from './alert.service';
 import {
@@ -14,19 +14,21 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 
+// 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private readonly http = inject(HttpClient);
-  private readonly alertService = inject(AlertService);
   private readonly router = inject(Router);
-  // private readonly jwtService = inject(JwtHelperService)
+  private readonly http = inject(HttpClient);
   private readonly jwtService = inject(JwtHelperService);
+  private readonly alertSerivce = inject(AlertService);
+
   readonly #user$ = new BehaviorSubject<User | null>(null);
   readonly user$ = this.#user$.asObservable();
+
   readonly baseUrl = `${API_BASE_URL}/auth`;
-  // readonly baseUrl =`${EVERREST_API_URL}/auth`
+
   constructor() {
     this.init();
 
@@ -35,15 +37,18 @@ export class AuthService {
     }, 300000);
   }
 
-  get user(){
-    return this.#user$.value
+  get user() {
+    return this.#user$.value;
   }
-  set user(user:User|null){
+
+  set user(user: User | null) {
     this.#user$.next(user);
   }
+
   get accessToken() {
     return localStorage.getItem(StorageKeys.AccessToken);
   }
+
   set accessToken(token: string | null) {
     if (!token) {
       return;
@@ -51,9 +56,11 @@ export class AuthService {
 
     localStorage.setItem(StorageKeys.AccessToken, token);
   }
+
   get refreshToken() {
     return localStorage.getItem(StorageKeys.RefreshToken);
   }
+
   set refreshToken(token: string | null) {
     if (!token) {
       return;
@@ -61,6 +68,7 @@ export class AuthService {
 
     localStorage.setItem(StorageKeys.RefreshToken, token);
   }
+
   signUp(user: SignUpUser) {
     return this.http.post<User>(`${this.baseUrl}/sign_up`, { ...user });
   }
@@ -68,6 +76,7 @@ export class AuthService {
   signIn(user: SignInUser) {
     return this.http.post<JwtTokens>(`${this.baseUrl}/sign_in`, { ...user });
   }
+
   init() {
     if (this.accessToken && this.refreshToken) {
       this.user = this.jwtService.decodeToken(this.accessToken);
@@ -79,27 +88,7 @@ export class AuthService {
       return;
     }
   }
-  handleRefresh() {
-    if (!this.refreshToken) {
-      this.logOut(false);
-      return;
-    }
 
-    this.http
-      .post<Omit<JwtTokens, 'refresh_token'>>(`${this.baseUrl}/refresh`, {
-        refresh_token: this.refreshToken,
-      })
-      .pipe(
-        tap((token) => {
-          this.accessToken = token.access_token;
-        }),
-        catchError(() => {
-          this.logOut(false);
-          return EMPTY;
-        }),
-      )
-      .subscribe();
-  }
   checkUser() {
     if (!this.accessToken || !this.refreshToken) {
       return;
@@ -123,8 +112,31 @@ export class AuthService {
       )
       .subscribe();
   }
+
+  handleRefresh() {
+    if (!this.refreshToken) {
+      this.logOut(false);
+      return;
+    }
+
+    this.http
+      .post<Omit<JwtTokens, 'refresh_token'>>(`${this.baseUrl}/refresh`, {
+        refresh_token: this.refreshToken,
+      })
+      .pipe(
+        tap((token) => {
+          this.accessToken = token.access_token;
+        }),
+        catchError(() => {
+          this.logOut(false);
+          return EMPTY;
+        }),
+      )
+      .subscribe();
+  }
+
   handleSignIn(tokens: JwtTokens) {
-    this.user = this.jwtService.decodeToken(tokens.access_token)
+    this.user = this.jwtService.decodeToken(tokens.access_token);
     this.accessToken = tokens.access_token;
     this.refreshToken = tokens.refresh_token;
 
@@ -135,33 +147,37 @@ export class AuthService {
 
     this.router.navigateByUrl('/');
   }
+
   logOut(showMessage = true) {
     this.user = null;
     this.removeTokens();
     if (showMessage) {
-      this.alertService.toast('Successfully log out', 'success', 'green');
+      this.alertSerivce.toast('Successfully log out', 'success', 'green');
     }
     this.router.navigateByUrl('/');
   }
+
   removeTokens() {
     localStorage.removeItem(StorageKeys.AccessToken);
     localStorage.removeItem(StorageKeys.RefreshToken);
   }
+
   recovery(email: string) {
     this.http
       .post<RecoveryResponse>(`${this.baseUrl}/recovery`, { email })
       .pipe(
         tap((response) => {
-          this.alertService.alert('Recovery', 'info', response.message);
-          this.router.navigateByUrl('/login');
+          this.alertSerivce.alert('Recovery', 'info', response.message);
+          this.router.navigateByUrl('/auth');
         }),
         catchError((err) => {
-          this.alertService.error(err);
+          this.alertSerivce.error(err);
           return EMPTY;
         }),
       )
       .subscribe();
   }
+
   canActivate() {
     if (!this.accessToken || !this.refreshToken) {
       this.router.navigateByUrl('/');

@@ -1,15 +1,33 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { ErrorResponse } from '../interfaces/api';
 import Swal, { SweetAlertIcon } from 'sweetalert2';
-
+import { ProfileService } from './profile.service';
+import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root',
 })
 export class AlertService {
+  private readonly profileService = inject(ProfileService)
+ 
   alert(title: string, icon: SweetAlertIcon, text = '') {
     Swal.fire({ title, icon, text });
   }
-
+  deleteAccount(){
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.profileService.deleteAccount()
+        
+      }
+    });
+  }
   toast(
     title: string,
     icon: SweetAlertIcon,

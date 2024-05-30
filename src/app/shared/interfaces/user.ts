@@ -18,11 +18,15 @@ export interface User extends SignUpUser {
     verified: boolean;
     role: string;
 }
-  export interface JwtTokens {
-    access_token: string;
-    refresh_token: string;
+export interface JwtTokens {
+  access_token: string;
+  refresh_token: string;
 }
 export interface JwtTokenDetails {
   iat: number;
   exp: number;
+}
+export interface UserChangePassword{
+  oldPassword:String;
+  newPassword:String;
 }

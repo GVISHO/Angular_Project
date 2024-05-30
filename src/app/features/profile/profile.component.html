@@ -1,0 +1,107 @@
+<div class="top">
+  <h1>Profile</h1>
+</div>
+<div class="line"></div>
+<div class="profile">
+  <div class="imagebox">
+    <img [src]="profileImage" alt="" />
+  </div>
+  <form [formGroup]="profileForm">
+    <div class="flexbox">
+      <label for="lastname">Name:</label>
+      <input type="text" name="name" formControlName="firstName" />
+    </div>
+    <div class="flexbox">
+      <label for="lastname">Last Name:</label>
+      <input type="text" name="lastname" formControlName="lastName" />
+    </div>
+    <div class="flexbox">
+      <label for="age">Age:</label>
+      <input type="number" name="age" formControlName="age" />
+    </div>
+    <div class="flexbox">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="" formControlName="email" />
+    </div>
+    <div class="flexbox">
+      <label for="address">Address:</label>
+      <input type="text" name="address" formControlName="address" />
+    </div>
+    <div class="flexbox">
+      <label for="phone">Phone Number:</label>
+      <input type="text" name="phone" formControlName="phone" />
+    </div>
+    <div class="flexbox">
+      <label for="zip">Zip Code:</label>
+      <input type="text" name="zip" formControlName="zipcode" />
+    </div>
+    <div class="flexbox">
+      <label for="gender">Gender:</label>
+      <select
+        class="form-select"
+        aria-label="select example"
+        formControlName="gender"
+      >
+        <option selected value="MALE">Male</option>
+        <option value="FEMALE">Female</option>
+        <option value="OTHER">Other</option>
+      </select>
+    </div>
+    <div class="flexbox">
+      <label for="img">Profile Img URL:</label>
+      <input type="text" name="img" formControlName="avatar" />
+    </div>
+  </form>
+  <div class="profile_buttons">
+    <div class="flexbox">
+      <button
+        type="button"
+        class="btn btn-primary editbtn"
+        (click)="toggleEditMode()"
+      >
+        {{ isEditMode ? "Submit" : "Edit" }}
+      </button>
+      <button class="btn btn-danger" (click)="delete()">Delete Account</button>
+    </div>
+    <p class="d-inline-flex gap-1">
+      <a
+        class="btn btn-primary"
+        data-bs-toggle="collapse"
+        href="#collapseExample"
+        role="button"
+        aria-expanded="false"
+        aria-controls="collapseExample"
+      >
+        Change Password
+      </a>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <form [formGroup]="passwordForm">
+        <label for="oldpass" class="form-label">Old Password</label>
+        <input
+          type="password"
+          name="oldpas"
+          id=""
+          formControlName="oldPassword"
+          class="form-control"
+        />
+        <label for="newpass" class="form-label">New Password</label>
+        <input
+          type="password"
+          name="newpass"
+          id=""
+          formControlName="newPassword"
+          class="form-control"
+        />
+        <button
+          class="btn btn-success"
+          [disabled]="!passwordForm.valid"
+          (click)="onSubmitChange()"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+    <!-- <button class="btn btn-danger">Delete Account</button> -->
+  </div>
+</div>

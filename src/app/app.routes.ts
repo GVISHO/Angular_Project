@@ -41,11 +41,12 @@ export const routes: Routes = [ {
     loadComponent:() => import('./features/recovery/recovery.component')
   }
   ,
-  // {
-  //   path:'profile',
-  //   title:'Profile',
-  //   canActivate: [canActivate],
-  // },
+  {
+    path:'profile',
+    title:'Profile',
+    canActivate: [canActivate],
+    loadComponent: () => import('./features/profile/profile.component')
+  },
   {
     path:"policy",
     title:"Policy",
