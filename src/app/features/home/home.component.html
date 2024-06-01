@@ -91,7 +91,7 @@
   </section>
   <section class="fourthsect">
     <div class="box">
-      <h2>Best Sellers</h2>
+      <h2>On Sale!</h2>
       @if (productsForCarousel$ | async; as response) {
         <div id="carouselExample" class="carousel carousel-dark slide">
           <div class="carousel-inner">
@@ -100,11 +100,18 @@
               track product._id;
               let i = $index
             ) {
-              <app-products-carousel
+              <!-- <app-products-carousel
                 [Product]="product"
                 class="carousel-item"
                 [class.active]="i === 0"
-              ></app-products-carousel>
+              ></app-products-carousel> -->
+              @if (product.price.discountPercentage !== 0) {
+                <app-products-carousel
+                  [Product]="product"
+                  class="carousel-item"
+                  [class.active]="i === 0"
+                ></app-products-carousel>
+              }
             }
           </div>
           <button
@@ -128,7 +135,7 @@
         </div>
       }
       <div class="flexbox">
-        <a href="" class="">View All</a>
+        <a routerLink="products/discounted">View All</a>
       </div>
     </div>
   </section>
@@ -139,7 +146,7 @@
         <div class="row gx-3 gy-5">
           <div class="col">
             <div class="grid_circle">
-              <a href=""
+              <a routerLink="products/category/laptops"
                 ><div class="circle">
                   <img
                     src="../../../assets/Photos/Main_page/circle_laptop.webp"
@@ -152,7 +159,7 @@
           </div>
           <div class="col">
             <div class="grid_circle">
-              <a href=""
+              <a routerLink="products/category/phones"
                 ><div class="circle">
                   <img
                     src="../../../assets/Photos/Main_page/circle_phone.webp"
@@ -165,7 +172,7 @@
           </div>
           <div class="col">
             <div class="grid_circle">
-              <a href=""
+              <a routerLink="404"
                 ><div class="circle">
                   <img
                     src="../../../assets/Photos/Main_page/circle_drone.webp"
@@ -178,7 +185,7 @@
           </div>
           <div class="col">
             <div class="grid_circle">
-              <a href=""
+              <a routerLink="products/discounted"
                 ><div class="circle">
                   <img
                     src="../../../assets/Photos/Main_page/circle_sale.webp"
@@ -191,7 +198,7 @@
           </div>
           <div class="col">
             <div class="grid_circle">
-              <a href=""
+              <a routerLink="404"
                 ><div class="circle">
                   <img
                     src="../../../assets/Photos/Main_page/circle_tablet.webp"
@@ -206,7 +213,7 @@
         <div class="row gx-3 gy-5">
           <div class="col">
             <div class="grid_circle">
-              <a href=""
+              <a routerLink="404"
                 ><div class="circle">
                   <img
                     src="../../../assets/Photos/Main_page/circle_award.webp"
@@ -219,7 +226,7 @@
           </div>
           <div class="col">
             <div class="grid_circle">
-              <a href=""
+              <a routerLink="404"
                 ><div class="circle">
                   <img
                     src="../../../assets/Photos/Main_page/circle_tv.webp"
@@ -232,7 +239,7 @@
           </div>
           <div class="col">
             <div class="grid_circle">
-              <a href=""
+              <a hrouterLink="404"
                 ><div class="circle">
                   <img
                     src="../../../assets/Photos/Main_page/circle_watch.webp"
@@ -245,7 +252,7 @@
           </div>
           <div class="col">
             <div class="grid_circle">
-              <a href=""
+              <a routerLink="404"
                 ><div class="circle">
                   <img
                     src="../../../assets/Photos/Main_page/circle_speaker.webp"
@@ -258,7 +265,7 @@
           </div>
           <div class="col">
             <div class="grid_circle">
-              <a href=""
+              <a routerLink="404"
                 ><div class="circle">
                   <img
                     src="../../../assets/Photos/Main_page/circle_earphones.webp"

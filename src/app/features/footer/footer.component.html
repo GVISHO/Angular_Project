@@ -49,10 +49,12 @@
   <div class="box">
     <h4>Shop</h4>
     <div class="brand_links">
-      <a href="">Shop All</a>
+      <a routerLink="products">Shop All</a>
       @if (brands$ | async; as response) {
         @for (brand of response; track brand) {
-          <a href="" class="">{{ brand | uppercase }}</a>
+          <a routerLink="products/brand/{{ brand }}" class="">{{
+            brand | uppercase
+          }}</a>
         }
       }
     </div>

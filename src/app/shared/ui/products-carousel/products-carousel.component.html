@@ -13,7 +13,8 @@
             {{ Product.price.current }}$<br />
             Rating:{{ Product.rating }}
           </p> -->
-          <h5 class="card-text carousel-price">{{ Product.price.current }}$</h5>
+          <!-- <h5 class="card-text carousel-price">{{ Product.price.current }}$</h5> -->
+          <app-product-price [productPrice]="Product.price"></app-product-price>
           <!-- <h5 class="card-text carousel-rating">Rating:{{ Product.rating }}</h5> -->
           <div class="rating">
             <app-product-rating-stars

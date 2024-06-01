@@ -40,8 +40,7 @@ onSignInSubmit() {
         this.signIn.reset();
       }),
       catchError((err) => {
-        console.log('seq')
-        this.alertService.error(err);
+        this.alertService.error(err.error);
         return EMPTY;
       }),
     )

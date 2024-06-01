@@ -41,13 +41,21 @@ a {
     margin-right: 50px;
 }
 */
- .loginicon {
+ .loginphoto {
      border-radius: 50%;
      background-color: transparent;
 
      height: 27px;
      width: 27px;
      /* padding: 5px 5px 3px 5px */
+ }
+
+ .loginicon {
+     border-radius: 50%;
+     background-color: black;
+     padding: 5px 5px 3px 5px;
+     height: 27px;
+     width: 27px;
  }
 
  /*

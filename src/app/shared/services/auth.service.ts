@@ -171,7 +171,7 @@ export class AuthService {
           this.router.navigateByUrl('/auth');
         }),
         catchError((err) => {
-          this.alertSerivce.error(err);
+          this.alertSerivce.error(err.error);
           return EMPTY;
         }),
       )

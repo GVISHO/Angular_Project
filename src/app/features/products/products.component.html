@@ -1,0 +1,9 @@
+<section>
+  @if (products$ | async; as response) {
+    <section class="products">
+      @for (product of response.products; track product._id) {
+        <app-product-preview [Product]="product"></app-product-preview>
+      }
+    </section>
+  }
+</section>

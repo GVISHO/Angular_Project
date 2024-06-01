@@ -16,10 +16,22 @@ export class ProductsService {
   }
   getProductsForCarousel(){
     return this.http.get<Products>(
-      `${this.baseURL}/shop/products/all?page_size=9`,
+      `${this.baseURL}/shop/products/all?page_size=10`,
     );
   }
   getSingleProductById(id: string) {
     return this.http.get<Product>(`${this.baseURL}/shop/products/id/${id}`);
+  }
+  getProductsByBrand(brand:string){
+    return this.http.get<Products>(`${this.baseURL}/shop/products/brand/${brand}?page_index=1&page_size=20`)
+  }
+  getProductsByCategory(category:string){
+    let id:string|undefined;
+    if(category === 'laptops'){
+      id='1';
+    }else if (category === 'phones'){
+      id = '2';
+    }
+    return this.http.get<Products>(`${this.baseURL}/shop/products/category/${id}?page_index=1&page_size=30`)
   }
 }

@@ -1,0 +1,15 @@
+.price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+svg {
+    width: 20px;
+    height: 20px;
+}
+
+span {
+    font-size: 20px;
+}

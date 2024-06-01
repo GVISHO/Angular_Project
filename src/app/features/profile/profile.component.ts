@@ -8,7 +8,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink,Router } from '@angular/router';
 import { ProfileService } from '../../shared/services/profile.service';
 import { EMPTY, catchError, tap } from 'rxjs';
 
@@ -25,6 +25,7 @@ export default class ProfileComponent {
   private readonly profileService = inject(ProfileService)
   private readonly fb = inject(FormBuilder)
   private readonly alertService = inject(AlertService)
+  private readonly router = inject(Router)
   isEditMode= false
   // readonly user =  this.authService.user$.subscribe((user: User | null) => { console.log(user)})
   profileImage:string|undefined = ''
@@ -101,6 +102,7 @@ export default class ProfileComponent {
       console.log(err);
       return EMPTY
     }),).subscribe()
+    this.authService.handleRefresh()
   }
   logValidationErrors() {
     for (const controlName in this.profileForm.controls) {

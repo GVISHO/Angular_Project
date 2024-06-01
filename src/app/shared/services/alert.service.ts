@@ -23,7 +23,7 @@ export class AlertService {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        this.profileService.deleteAccount()
+        this.profileService.deleteAccount().subscribe()
         
       }
     });
@@ -52,6 +52,7 @@ export class AlertService {
   }
 
   error(response: ErrorResponse) {
+    console.log(response)
     Swal.fire({
       title: response.error,
       icon: 'error',
