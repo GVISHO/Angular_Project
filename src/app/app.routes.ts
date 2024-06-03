@@ -75,11 +75,11 @@ export const routes: Routes = [ {
     title:'Categories',
     loadComponent:() => import('./features/category-products/category-products.component')
   },
-  // {
-  //   path: 'product/:id',
-  //   title: 'Product',
-  //   loadComponent: () => import('./features/product/product.component'),
-  // },
+  {
+    path: 'product/:id',
+    title: 'Product',
+    loadComponent: () => import('./features/product/product.component'),
+  },
   {
     path: '404',
     title: 'Not found',
