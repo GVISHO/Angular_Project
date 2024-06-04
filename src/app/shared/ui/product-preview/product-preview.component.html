@@ -23,7 +23,7 @@
             <button class="view">
               <a routerLink="/product/{{ Product._id }}">View Product</a>
             </button>
-            <button class="btn btn-danger cartbtn">
+            <button class="btn btn-danger cartbtn" (click)="addToCart()">
               cart
               <svg
                 class="carticon"

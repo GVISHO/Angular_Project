@@ -34,3 +34,15 @@ h2:hover {
 .navdrop {
     margin-right: 50px;
 }
+
+.offcanvas {
+    transition: 0.3s ease-in-out;
+}
+
+.cart-item {
+    margin-bottom: 30px !important;
+}
+
+.product-details {
+    margin: 30px 0 30px 0;
+}

@@ -96,7 +96,7 @@
             }
             @if (navigation.title === "Cart") {
               <li class="nav-item">
-                <a routerLink="cart" class="nav-link"
+                <a class="nav-link" (click)="toggleCart()"
                   ><i class="fas fa-shopping-cart"></i> <span>Cart</span></a
                 >
               </li>

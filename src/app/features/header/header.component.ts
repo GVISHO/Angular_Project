@@ -1,6 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject,OnInit } from '@angular/core';
-import { BrandsService,AuthService,NavigationService } from '../../shared/services';
+import { BrandsService,AuthService,NavigationService, CartStateService } from '../../shared/services';
 import { RouterLink } from '@angular/router';
 import { UpperCasePipe } from '@angular/common';
 import { User } from '../../shared/interfaces';
@@ -23,8 +23,12 @@ export class HeaderComponent {
     }
   })
   private readonly navigationService= inject(NavigationService)
+  private readonly cartStateService = inject(CartStateService)
   readonly navigation$ = this.navigationService.navigation$
   logOut(){
     this.authService.logOut()
+  }
+  toggleCart(): void {
+    this.cartStateService.toggleCartVisibility();
   }
 }

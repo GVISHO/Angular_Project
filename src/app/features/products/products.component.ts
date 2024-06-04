@@ -1,4 +1,4 @@
-import { Component,inject } from '@angular/core';
+import { Component,inject,Input } from '@angular/core';
 import { ProductsService } from '../../shared/services';
 import { AsyncPipe } from '@angular/common';
 import { ProductPreviewComponent } from '../../shared/ui/product-preview/product-preview.component';
@@ -12,6 +12,7 @@ import { ProductsCarouselComponent } from '../../shared/ui';
   styleUrl: './products.component.css'
 })
 export default class ProductsComponent {
+  @Input() toggleCart!: () => void;
   private readonly productService = inject(ProductsService)
   readonly products$=this.productService.getProducts()
 }

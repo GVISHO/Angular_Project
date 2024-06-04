@@ -1,9 +1,12 @@
-import { Component,Input, input } from '@angular/core';
+import { Component,Input, inject,Output,EventEmitter } from '@angular/core';
 import { Product } from '../../interfaces';
 import { ProductPriceComponent } from '../product-price/product-price.component';
 import { ProductRatingStarsComponent } from '../product-rating-stars/product-rating-stars.component';
 import { TextShorterPipe } from '../../pipes/text-shorter.pipe';
 import { RouterLink } from '@angular/router';
+import { CartStateService,CartService, AlertService } from '../../services';
+import { EMPTY,catchError } from 'rxjs';
+
 
 @Component({
   selector: 'app-product-preview',
@@ -14,4 +17,21 @@ import { RouterLink } from '@angular/router';
 })
 export class ProductPreviewComponent {
   @Input() Product:Product|null = null
+  @Output() cartUpdated = new EventEmitter<void>();
+  private readonly cartService = inject(CartService)
+  private readonly cartStateService = inject(CartStateService)
+  private readonly alertService = inject(AlertService)
+  addToCart(): void {
+    if (this.Product) {
+      const cartItem = { id: this.Product._id, quantity: 1 };
+      this.cartService.addOrUpdateCartItem(cartItem).pipe(catchError(error => {
+        this.alertService.error(error.error);
+        // Handle error appropriately, maybe show a message to the user
+        return EMPTY;
+      })).subscribe(() => {
+        this.cartStateService.setCartVisibility(true);
+        this.cartUpdated.emit();
+      });
+    }
+  }
 }
