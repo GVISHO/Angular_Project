@@ -12,6 +12,22 @@
       <a routerLink="products">Shop Now</a>
     </div>
   </section>
+  <section class="firstsect_mobile">
+    <div class="firstsect_textbox">
+      <h5>Best Prices</h5>
+      <h2>
+        Incredible Prices <br />
+        on All Your <br />
+        Favorite Items
+      </h2>
+      <p>Get more for less on selected brands</p>
+      <a routerLink="products">Shop Now</a>
+      <img
+        src="https://static.wixstatic.com/media/c837a6_f58829a26e594ca3aa72383e19cf39b9~mv2.png/v1/fill/w_320,h_243,al_r,q_85,usm_0.66_1.00_0.01,enc_auto/c837a6_f58829a26e594ca3aa72383e19cf39b9~mv2.png"
+        alt=""
+      />
+    </div>
+  </section>
   <section class="grid_box">
     <div class="first_grid_box">
       <h6>Holiday Deals</h6>
@@ -100,11 +116,6 @@
               track product._id;
               let i = $index
             ) {
-              <!-- <app-products-carousel
-                [Product]="product"
-                class="carousel-item"
-                [class.active]="i === 0"
-              ></app-products-carousel> -->
               @if (product.price.discountPercentage !== 0) {
                 <app-products-carousel
                   [Product]="product"
@@ -143,139 +154,115 @@
     <div class="white_box">
       <h2>Shop by category</h2>
       <div class="grid_box3">
-        <div class="row gx-3 gy-5">
-          <div class="col">
-            <div class="grid_circle">
-              <a routerLink="products/category/laptops"
-                ><div class="circle">
-                  <img
-                    src="../../../assets/Photos/Main_page/circle_laptop.webp"
-                    alt="Laptop"
-                  />
-                </div>
-                <h4>Computers</h4>
-              </a>
+        <div class="grid_circle">
+          <a routerLink="products/category/laptops"
+            ><div class="circle">
+              <img
+                src="../../../assets/Photos/Main_page/circle_laptop.webp"
+                alt="Laptop"
+              />
             </div>
-          </div>
-          <div class="col">
-            <div class="grid_circle">
-              <a routerLink="products/category/phones"
-                ><div class="circle">
-                  <img
-                    src="../../../assets/Photos/Main_page/circle_phone.webp"
-                    alt="phone"
-                  />
-                </div>
-                <h4>Smartphones</h4>
-              </a>
-            </div>
-          </div>
-          <div class="col">
-            <div class="grid_circle">
-              <a routerLink="404"
-                ><div class="circle">
-                  <img
-                    src="../../../assets/Photos/Main_page/circle_drone.webp"
-                    alt="drone"
-                  />
-                </div>
-                <h4>Drones & Cameras</h4>
-              </a>
-            </div>
-          </div>
-          <div class="col">
-            <div class="grid_circle">
-              <a routerLink="products/discounted"
-                ><div class="circle">
-                  <img
-                    src="../../../assets/Photos/Main_page/circle_sale.webp"
-                    alt="Sale"
-                  />
-                </div>
-                <h4>Sale</h4>
-              </a>
-            </div>
-          </div>
-          <div class="col">
-            <div class="grid_circle">
-              <a routerLink="404"
-                ><div class="circle">
-                  <img
-                    src="../../../assets/Photos/Main_page/circle_tablet.webp"
-                    alt="Tablet"
-                  />
-                </div>
-                <h4>Tablets</h4>
-              </a>
-            </div>
-          </div>
+            <h4>Computers</h4>
+          </a>
         </div>
-        <div class="row gx-3 gy-5">
-          <div class="col">
-            <div class="grid_circle">
-              <a routerLink="404"
-                ><div class="circle">
-                  <img
-                    src="../../../assets/Photos/Main_page/circle_award.webp"
-                    alt="best sellers"
-                  />
-                </div>
-                <h4>Best Sellers</h4>
-              </a>
+        <div class="grid_circle">
+          <a routerLink="products/category/phones"
+            ><div class="circle">
+              <img
+                src="../../../assets/Photos/Main_page/circle_phone.webp"
+                alt="phone"
+              />
             </div>
-          </div>
-          <div class="col">
-            <div class="grid_circle">
-              <a routerLink="404"
-                ><div class="circle">
-                  <img
-                    src="../../../assets/Photos/Main_page/circle_tv.webp"
-                    alt="TV"
-                  />
-                </div>
-                <h4>T.V & HomeCinema</h4>
-              </a>
+            <h4>Smartphones</h4>
+          </a>
+        </div>
+        <div class="grid_circle">
+          <a routerLink="404"
+            ><div class="circle">
+              <img
+                src="../../../assets/Photos/Main_page/circle_drone.webp"
+                alt="drone"
+              />
             </div>
-          </div>
-          <div class="col">
-            <div class="grid_circle">
-              <a hrouterLink="404"
-                ><div class="circle">
-                  <img
-                    src="../../../assets/Photos/Main_page/circle_watch.webp"
-                    alt="Smartwatch"
-                  />
-                </div>
-                <h4>Wearable Tech</h4>
-              </a>
+            <h4>Drones & Cameras</h4>
+          </a>
+        </div>
+        <div class="grid_circle">
+          <a routerLink="products/discounted"
+            ><div class="circle">
+              <img
+                src="../../../assets/Photos/Main_page/circle_sale.webp"
+                alt="Sale"
+              />
             </div>
-          </div>
-          <div class="col">
-            <div class="grid_circle">
-              <a routerLink="404"
-                ><div class="circle">
-                  <img
-                    src="../../../assets/Photos/Main_page/circle_speaker.webp"
-                    alt="Speakers"
-                  />
-                </div>
-                <h4>Speakers</h4>
-              </a>
+            <h4>Sale</h4>
+          </a>
+        </div>
+        <div class="grid_circle">
+          <a routerLink="404"
+            ><div class="circle">
+              <img
+                src="../../../assets/Photos/Main_page/circle_tablet.webp"
+                alt="Tablet"
+              />
             </div>
-          </div>
-          <div class="col">
-            <div class="grid_circle">
-              <a routerLink="404"
-                ><div class="circle">
-                  <img
-                    src="../../../assets/Photos/Main_page/circle_earphones.webp"
-                    alt="Headphones"
-                  />
-                </div>
-                <h4>Headphones</h4>
-              </a>
+            <h4>Tablets</h4>
+          </a>
+        </div>
+        <div class="grid_circle">
+          <a routerLink="404"
+            ><div class="circle">
+              <img
+                src="../../../assets/Photos/Main_page/circle_award.webp"
+                alt="best sellers"
+              />
             </div>
-          </div>
+            <h4>Best Sellers</h4>
+          </a>
+        </div>
+        <div class="grid_circle">
+          <a routerLink="404"
+            ><div class="circle">
+              <img
+                src="../../../assets/Photos/Main_page/circle_tv.webp"
+                alt="TV"
+              />
+            </div>
+            <h4>T.V & HomeCinema</h4>
+          </a>
+        </div>
+        <div class="grid_circle">
+          <a hrouterLink="404"
+            ><div class="circle">
+              <img
+                src="../../../assets/Photos/Main_page/circle_watch.webp"
+                alt="Smartwatch"
+              />
+            </div>
+            <h4>Wearable Tech</h4>
+          </a>
+        </div>
+        <div class="grid_circle">
+          <a routerLink="404"
+            ><div class="circle">
+              <img
+                src="../../../assets/Photos/Main_page/circle_speaker.webp"
+                alt="Speakers"
+              />
+            </div>
+            <h4>Speakers</h4>
+          </a>
+        </div>
+        <div class="grid_circle">
+          <a routerLink="404"
+            ><div class="circle">
+              <img
+                src="../../../assets/Photos/Main_page/circle_earphones.webp"
+                alt="Headphones"
+              />
+            </div>
+            <h4>Headphones</h4>
+          </a>
         </div>
       </div>
     </div>
@@ -317,21 +304,7 @@
         <h5>Sign up to receive updates on new arrivals and special offers</h5>
       </div>
       <div class="input_box">
-        <!-- <h6>Email*</h6>
         <form action="https://api.everrest.educata.dev/echo/html" method="post">
-          <label for="email" class="form">
-            <input
-              type="email"
-              name="email"
-              id="main_email"
-              class="form-control"
-              placeholder="Your Email Here"
-            />
-          </label>
-          <button type="submit">Subscribe</button>
-        </form> -->
-        <form action="https://api.everrest.educata.dev/echo/html" method="post">
-          <!-- <label for="email" class="form-label">Email*</label> -->
           <div class="d-flex m-auto">
             <div class="d-flex m-auto">
               <input
