@@ -1,6 +1,6 @@
 @if (Product) {
   <div class="carousel">
-    <a href="">
+    <a routerLink="product/{{ Product._id }}">
       <div class="card">
         <img
           [src]="Product.thumbnail"

@@ -20,9 +20,10 @@
             [rating]="Product.rating"
           ></app-product-rating-stars>
           <div class="flexbox">
-            <button class="view">
-              <a routerLink="/product/{{ Product._id }}">View Product</a>
-            </button>
+            <a routerLink="/product/{{ Product._id }}"
+              ><button class="view">View Product</button></a
+            >
+
             <button class="btn btn-danger cartbtn" (click)="addToCart()">
               cart
               <svg

@@ -11,4 +11,5 @@ import { NgStyle } from '@angular/common';
 })
 export class ProductPriceComponent {
   @Input() productPrice:ProductPrice|null = null;
+  @Input() justifyContent: boolean = true;  // Default to 'center'
 }

@@ -1,5 +1,10 @@
 @if (productPrice) {
-  <div class="price">
+  <div
+    class="price"
+    [ngStyle]="{
+      justifyContent: justifyContent === true ? 'center' : 'flex-start'
+    }"
+  >
     @if (productPrice.discountPercentage !== 0) {
       <span
         style="text-decoration: line-through; color: red; font-weight: bold"

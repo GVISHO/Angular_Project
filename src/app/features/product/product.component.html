@@ -1,5 +1,125 @@
 <section class="product_page">
   @if (product$ | async; as product) {
-    {{ product.description }}
+    <section class="indprsect">
+      <div class="igridcont">
+        <div id="carouselExample" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="{{ product.thumbnail }}"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="{{ product.images[1] }}"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="{{ product.images[2] }}"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="secclmn">
+          <h3>{{ product.title }}</h3>
+          <h5>ID:{{ product._id }}</h5>
+          @if (product.stock > 0) {
+            <h4 style="color: green">In stock</h4>
+          } @else {
+            <h4 style="color: red">Out of stock</h4>
+          }
+          <app-product-price
+            [productPrice]="product.price"
+            [justifyContent]="false"
+          ></app-product-price>
+          @if (product.stock > 0) {
+            <button class="ibtn1" (click)="addToCart(product)">
+              Add to Cart
+            </button>
+          } @else {
+            <button disabled class="ibtn1" (click)="addToCart(product)">
+              Add to Cart
+            </button>
+          }
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Product Info
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  {{ product.description }}
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Refund & Return policy
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  I’m a Return and Refund policy. I’m a great place to let your
+                  customers know what to do in case they are dissatisfied with
+                  their purchase. Having a straightforward refund or exchange
+                  policy is a great way to build trust and reassure your
+                  customers that they can buy with confidence.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   }
 </section>
