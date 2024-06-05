@@ -56,6 +56,12 @@
           <app-product-price
             [productPrice]="product.price"
             [justifyContent]="false"
+            class="desktopprice"
+          ></app-product-price>
+          <app-product-price
+            [productPrice]="product.price"
+            [justifyContent]="true"
+            class="mobileprice"
           ></app-product-price>
           @if (product.stock > 0) {
             <button class="ibtn1" (click)="addToCart(product)">
