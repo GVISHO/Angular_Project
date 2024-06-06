@@ -14,9 +14,6 @@ export class ProfileService {
   private readonly router = inject(Router);
   readonly baseUrl = `${API_BASE_URL}/auth`;
   private readonly http = inject(HttpClient);
-  // private readonly jwtService = inject(JwtHelperService);
-  // private readonly alertSerivce = inject(AlertService);
-
   updateUser(user:SignUpUser){
     return this.http.patch<User>(`${this.baseUrl}/update`,{...user})
   }

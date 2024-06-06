@@ -44,17 +44,15 @@ export class CartService {
   }
   addOrUpdateCartItem(cartItem: CartItem) {
     if (this.cart) {
-      // Check if product already exists in the cart
       const existingProduct = this.cart.products.find(p => p.productId === cartItem.id);
       if (existingProduct) {
-        // Update existing product quantity
+
         return this.updateCartItem(cartItem);
       } else {
-        // Add new product to existing cart
         return this.addCartItem(cartItem);
       }
     } else {
-      // Create a new cart with the first product
+
       return this.createCart(cartItem);
     }
   }
