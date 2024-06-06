@@ -18,8 +18,8 @@
 }
 
 img {
-    height: 30vh;
-    width: 30vw;
+    height: 250px;
+    width: 350px;
     object-fit: contain;
     /* padding: 10vh 10vw; */
     transition: 0.4s ease;
@@ -28,8 +28,8 @@ img {
 }
 
 img:hover {
-    height: 35vh;
-    width: 35vw;
+    height: 270px;
+    width: 400px;
     object-fit: contain;
     transition: 0.4s ease;
 }
@@ -43,3 +43,24 @@ img:hover {
 /* .rating {
     width: 100px;
 } */
+@media screen and (max-width:850px) {
+    img {
+        height: 300px;
+        width: 230px;
+    }
+
+    .card {
+        max-width: 65vw;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .card {
+        padding: 0;
+    }
+
+    img {
+        height: 300px;
+        width: 180px;
+    }
+}

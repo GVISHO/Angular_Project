@@ -1,6 +1,6 @@
 .star {
     color: var(--purple_color);
-    font-size: 40px !important;
+    /* font-size: 40px !important; */
 }
 
 .star-rating span.full,
@@ -28,4 +28,15 @@
 
 .empty {
     color: darkgray;
+}
+
+@media screen and (max-width:740px) {
+
+    .star-rating span.full,
+    .star-rating span.half,
+    .star-rating span.empty {
+        font-size: 1rem;
+
+    }
+
 }

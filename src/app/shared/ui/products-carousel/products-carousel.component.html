@@ -8,7 +8,7 @@
           alt="{{ Product.title }} image"
         />
         <div class="card-body">
-          <h5 class="card-title">{{ Product.title }}</h5>
+          <h5 class="card-title">{{ Product.title | textShorter }}</h5>
           <!-- <p class="card-text">
             {{ Product.price.current }}$<br />
             Rating:{{ Product.rating }}
