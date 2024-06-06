@@ -32,7 +32,7 @@ form button {
     color: white;
     transition: 0.4s ease;
     height: 2rem;
-    margin-left: 85% !important;
+    margin-left: 85%;
     margin-top: 20px;
 }
 
@@ -51,4 +51,14 @@ form button:hover {
     background-color: white;
     color: black;
     transition: 0.4s ease;
+}
+
+@media screen and (max-width:550px) {
+    form button {
+        margin-left: 10px;
+    }
+
+    .card {
+        width: 80%
+    }
 }

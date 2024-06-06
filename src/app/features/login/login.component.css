@@ -58,3 +58,21 @@ form .loginbtn:disabled:hover {
     cursor: not-allowed;
     color: white;
 }
+
+@media screen and (max-width:600px) {
+    .card {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .card {
+        height: 600px;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .card {
+        width: 90%;
+    }
+}
