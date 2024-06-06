@@ -80,3 +80,47 @@ select:disabled {
 .profile_buttons a {
     height: fit-content;
 }
+
+@media screen and (min-height:1350px) {
+    .profile {
+        margin-bottom: 300px;
+    }
+
+}
+
+@media screen and (min-height:1800px) {
+    .profile {
+        margin-bottom: 1300px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .profile {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 0.5fr;
+        gap: 10px;
+        height: fit-content;
+    }
+
+    .imagebox {
+        width: 100%;
+    }
+
+    form {
+        margin-left: 10px;
+    }
+
+    .flexbox {
+        margin-left: 10px;
+    }
+
+    img {
+        width: 80%;
+        height: 80%;
+        margin-left: 10px;
+    }
+
+    .passwordChange {
+        margin-left: 10px;
+    }
+}
