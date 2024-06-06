@@ -26,3 +26,15 @@ img {
     width: 100% !important;
     margin: auto;
 }
+
+@media screen and (max-width:650px) {
+    img {
+        height: 30vh;
+        width: 30vw;
+    }
+
+    .card {
+        max-width: 60vw;
+        height: 70vh;
+    }
+}
