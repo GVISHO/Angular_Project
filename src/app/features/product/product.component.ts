@@ -2,7 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { Component,inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService,AlertService,CartStateService, CartService } from '../../shared/services';
-import { ProductPriceComponent } from '../../shared/ui';
+import { ProductPriceComponent, ProductRatingStarsComponent } from '../../shared/ui';
 import { EMPTY, catchError } from 'rxjs';
 import { Product } from '../../shared/interfaces';
 
@@ -11,7 +11,7 @@ import { Product } from '../../shared/interfaces';
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [AsyncPipe,ProductPriceComponent],
+  imports: [AsyncPipe,ProductPriceComponent,ProductRatingStarsComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })

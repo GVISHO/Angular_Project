@@ -39,6 +39,7 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    width: 100%;
 }
 
 .row1,
@@ -50,15 +51,16 @@ form {
     justify-content: start;
     align-items: center;
     gap: 20px;
+    width: 100%;
     height: 50px;
 }
 
 .row3 .flexbox {
-    width: 100% !important;
+    width: 100%;
 }
 
 .row3 input {
-    width: 100%;
+    width: 90%;
 }
 
 .row4 button {
@@ -91,4 +93,78 @@ form {
     border: 0px !important;
     border-bottom: 1px solid gray !important;
     outline: none;
+}
+
+@media screen and (min-width:1440px) {
+
+    .column div,
+    .column2 h3 {
+        margin-top: 100px;
+    }
+
+    /* .gridbox {
+        height: 800px;
+    } */
+}
+
+@media screen and (min-height:1960px) {
+    .gridbox {
+        height: 1400px;
+    }
+
+}
+
+@media screen and (max-width:850px) {
+    .gridbox {
+        grid-template-columns: 1fr;
+    }
+
+    .column div,
+    .column2 h3,
+    .column2 p {
+        text-align: center;
+        margin-left: 0 !important;
+    }
+
+    form {
+        margin: auto auto 30px auto;
+    }
+
+}
+
+@media screen and (max-width:410px) {
+    form {
+        width: 100% !important
+    }
+
+    .row1,
+    .row2,
+    .row3,
+    .row4 {
+        justify-content: center;
+        width: 80%;
+        margin: auto;
+    }
+
+    .row1 input,
+    .row2 input {
+        width: 100px !important;
+
+    }
+
+    .flexbox {
+        width: 150px;
+    }
+
+    .row3 .flexbox {
+        width: 80% !important;
+    }
+
+}
+
+@media screen and (max-width:320px) {
+    .flexbox {
+        width: 100px;
+    }
+
 }

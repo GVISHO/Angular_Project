@@ -63,6 +63,9 @@
             [justifyContent]="true"
             class="mobileprice"
           ></app-product-price>
+          <app-product-rating-stars
+            [rating]="product.rating"
+          ></app-product-rating-stars>
           @if (product.stock > 0) {
             <button class="ibtn1" (click)="addToCart(product)">
               Add to Cart
