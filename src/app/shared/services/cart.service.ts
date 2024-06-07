@@ -46,13 +46,11 @@ export class CartService {
     if (this.cart) {
       const existingProduct = this.cart.products.find(p => p.productId === cartItem.id);
       if (existingProduct) {
-
         return this.updateCartItem(cartItem);
       } else {
         return this.addCartItem(cartItem);
       }
     } else {
-
       return this.createCart(cartItem);
     }
   }
