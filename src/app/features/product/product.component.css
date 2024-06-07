@@ -9,7 +9,6 @@
     filter: invert(100%);
 }
 
-
 .igridcont {
     display: grid;
     grid-template-columns: 1fr 2fr !important;
@@ -57,7 +56,6 @@
     font-size: 12px;
     font-family: var(--nanito-font);
 }
-
 
 .secclmn .ibtn1:hover {
     background-color: white;
@@ -173,7 +171,6 @@ img {
         height: 1200px;
     }
 
-
     .btmp {
         width: 90%;
         margin: auto;
@@ -199,7 +196,6 @@ img {
     .secclmn p {
         width: 80% !important;
     }
-
 
     img {
         height: 200px;

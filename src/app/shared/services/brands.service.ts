@@ -14,7 +14,6 @@ export class BrandsService {
   getBrands() {
     return this.http
       .get<string[]>(`${this.baseurl}/shop/products/brands`)
-      .pipe(tap((response) => console.log(response)));
   }
   getSingleBrandProductsByName(name: string) {
     return this.http.get<Products>(
